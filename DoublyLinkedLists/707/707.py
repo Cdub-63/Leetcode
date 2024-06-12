@@ -1,67 +1,68 @@
+# Define a class for a list node
 class ListNode:
-    def __init__(self, val):
-        self.val = val
-        self.prev = None
-        self.next = None
+    # Define a method to initialize a list node
+    def __init__(self, x):
+        self.val = x
+        self.next, self.prev = None, None
 
+# Define a class for a doubly linked list
 class MyLinkedList:
-
+    # Define a method to initialize a doubly linked list
     def __init__(self):
-        self.left = ListNode(0)
-        self.right = ListNode(0)
-        self.left.next = self.right
-        self.right.prev = self.left
+        self.size = 0
+        # Sentinel nodes as pseudo-head and pseudo-tail
+        self.head, self.tail = ListNode(0), ListNode(0) 
+        self.head.next = self.tail
+        self.tail.prev = self.head
 
-    def get(self, index: int) -> int:
-        cur = self.left.next
-        while cur and index > 0:
-            cur = cur.next
-            index -= 1
-        
-        if cur and cur != self.right and index == 0:
-            return cur.val
-        return -1
-
-    def addAtHead(self, val: int) -> None:
-        node, prev, next = ListNode(val), self.left, self.left.next
-        node.next, node.prev = next, prev
-        next.prev = node
-        prev.next = node
-
-    def addAtTail(self, val: int) -> None:
-        node, prev, next = ListNode(val), self.right.prev, self.right
-        node.next, node.prev = next, prev
-        next.prev = node
-        prev.next = node
-
+    # Define a method to add an element at a specific index
     def addAtIndex(self, index: int, val: int) -> None:
-        next = self.left.next
-        while next and index > 0:
-            next = next.next
-            index -= 1
+        # If the index is greater than the length of the list, do not insert anything
+        if index > self.size:
+            return
         
-        if next and index == 0:
-            node, prev = ListNode(val), next.prev
-            node.next, node.prev = next, prev
-            next.prev = node
-            prev.next = node
+        # If the index is negative, insert the element at the head of the list
+        if index < 0:
+            index = 0
+        
+        # Find the predecessor and successor of the node to be added
+        if index < self.size - index:
+            pred, succ = self.head, self.head.next
+            for _ in range(index):
+                pred, succ = succ, succ.next
+        else:
+            pred, succ = self.tail, self.tail.prev
+            for _ in range(self.size - index):
+                pred, succ = succ, succ.prev
+        
+        # Insert the node
+        self.size += 1
+        to_add = ListNode(val)
+        to_add.prev = pred
+        to_add.next = succ
+        pred.next = to_add
+        succ.prev = to_add
 
-
+    # Define a method to delete an element at a specific index
     def deleteAtIndex(self, index: int) -> None:
-        node = self.left.next
-        while node and index > 0:
-            node = node.next
-            index -= 1
+        # If the index is out of range, do not delete anything
+        if index < 0 or index >= self.size:
+            return
         
-        if node and node != self.right and index == 0:
-            node.prev.next = node.next
-            node.next.prev = node.prev
+        # Find the predecessor and successor of the node to be deleted
+        if index < self.size - index:
+            pred, succ = self.head, self.head.next
+            for _ in range(index):
+                pred, succ = succ, succ.next
+        else:
+            pred, succ = self.tail, self.tail.prev
+            for _ in range(self.size - index):
+                pred, succ = succ, succ.prev
+        
+        # Delete the node
+        self.size -= 1
+        pred.next = succ.next
+        succ.next.prev = pred
 
-
-# Your MyLinkedList object will be instantiated and called as such:
-# obj = MyLinkedList()
-# param_1 = obj.get(index)
-# obj.addAtHead(val)
-# obj.addAtTail(val)
-# obj.addAtIndex(index,val)
-# obj.deleteAtIndex(index)
+# Time complexity: O(min(index, size - index)) for addAtIndex and deleteAtIndex
+# Space complexity: O(1) for addAtIndex and deleteAtIndex

@@ -33,3 +33,6 @@ class BrowserHistory:
         self.i = min(self.len - 1, self.i + steps)
         # Return the current URL
         return self.history[self.i]
+    
+# Time complexity: O(1) for each operation
+# Space complexity: O(n) where n is the number of URLs visited

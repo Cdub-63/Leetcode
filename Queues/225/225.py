@@ -19,10 +19,5 @@ class MyStack:
     def empty(self) -> bool:
         return len(self.q) == 0  # Return True if the deque is empty, False otherwise
 
-
-# Your MyStack object will be instantiated and called as such:
-# obj = MyStack()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.empty()
+# Time complexity: O(n) for pop, O(1) for top and empty, where n is the number of elements in the stack
+# Space complexity: O(n) for the deque, where n is the number of elements in the stack

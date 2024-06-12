@@ -40,3 +40,6 @@ class BrowserHistory:
             steps -= 1
         # Return the current URL
         return self.cur.val
+
+# Time complexity: O(1) for visit, O(steps) for back and forward
+# Space complexity: O(n) for n URLs visited
