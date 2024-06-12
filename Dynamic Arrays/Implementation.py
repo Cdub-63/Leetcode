@@ -46,3 +46,5 @@ class Array:
         for i in range(self.length):
             print(self.arr[i])
         print()
+# Time complexity: O(n) where n is the number of elements in the array
+# Space complexity: O(n) where n is the number of elements in the array

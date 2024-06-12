@@ -34,3 +34,6 @@ def removeMiddle(arr, i, length):
 def printArr(arr, capacity):
     for i in range(capacity):
         print(arr[i])
+
+# Time complexity: O(n) for all operations
+# Space complexity: O(1) for all operations

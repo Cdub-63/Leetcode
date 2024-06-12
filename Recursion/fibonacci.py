@@ -6,3 +6,6 @@ def fibonacci(n):
 
     # Recursive case: fib(n) = fib(n - 1) + fib(n - 2)
     return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Time complexity: O(2^n) where n is the input number
+# Space complexity: O(n) where n is the input number

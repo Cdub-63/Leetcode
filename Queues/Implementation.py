@@ -37,3 +37,6 @@ class Queue:
             print(cur.val, ' -> ', end ="")
             cur = cur.next
         print() # new line
+
+# Time complexity: O(1) for all operations
+# Space complexity: O(1) for all operations

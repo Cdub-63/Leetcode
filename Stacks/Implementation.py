@@ -8,3 +8,6 @@ class Stack:
 
     def pop(self):
         return self.stack.pop()
+
+# Time complexity: O(1) for all operations
+# Space complexity: O(n) where n is the number of elements in the stack

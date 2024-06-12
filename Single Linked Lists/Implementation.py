@@ -40,3 +40,6 @@ class LinkedList:
             print(curr.val, " -> ", end="")
             curr = curr.next
         print()
+
+# Time complexity: O(n) for all operations
+# Space complexity: O(1) for all operations

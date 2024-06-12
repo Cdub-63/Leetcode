@@ -6,3 +6,6 @@ def factorial(n):
 
     # Recursive case: n! = n * (n - 1)!
     return n * factorial(n - 1)
+
+# Time complexity: O(n) where n is the input number
+# Space complexity: O(n) due to the recursive calls
