@@ -43,3 +43,6 @@ class Solution:
         
         # Sort the input array and return it
         return mergeSort(nums, 0, len(nums) - 1)
+    
+# Time complexity: O(n log n)
+# Space complexity: O(n)
