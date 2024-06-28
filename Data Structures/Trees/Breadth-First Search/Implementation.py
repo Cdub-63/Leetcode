@@ -55,3 +55,6 @@ def bfs(root):
         
         # Increment the level after processing all nodes in the current level
         level += 1
+
+# TIme Complexity: O(n), because we visit each node once
+# Space Complexity: O(n)
