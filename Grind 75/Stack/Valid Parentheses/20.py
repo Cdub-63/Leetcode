@@ -32,10 +32,6 @@ class Solution:
             elif not stack or Map[char] != stack.pop():
                 # The string is not valid
                 return False
-            # If the character is a closing parenthesis
-            else:
-                # Pop the top of the stack
-                stack.pop()
 
         # If the stack is empty, the string is valid
         return not stack
