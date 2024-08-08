@@ -48,6 +48,7 @@ class Solution:
             temp1, temp2 = first.next, second.next
             # Reverse the link by pointing the current node in the first half to the current node in the second half.
             first.next = second
+            second.next = temp1
             # Move the pointers to the next nodes in each half.
             first, second = temp1, temp2
 
