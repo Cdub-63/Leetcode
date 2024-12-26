@@ -52,3 +52,6 @@ class Solution:
                         return True
         
         return False
+
+#Time complexity: O(m∗4n)
+#Space complexity: O(n)
